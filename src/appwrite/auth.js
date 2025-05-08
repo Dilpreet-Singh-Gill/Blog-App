@@ -1,4 +1,4 @@
-import conf from '../conf.js';
+import conf from '../conf/conf.js';
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
@@ -40,7 +40,6 @@ export class AuthService {
       console.error("Error getting current user:", error);
       throw error;
     }
-    return null;
   }
   async logout() {
     try {
@@ -51,3 +50,7 @@ export class AuthService {
     }
   }
 }
+
+
+const authService = new AuthService();
+export default authService;
