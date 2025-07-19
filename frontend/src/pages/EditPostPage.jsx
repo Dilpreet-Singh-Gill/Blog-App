@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PostForm from "../components/PostForm";
+import { getPostById, updatePost } from "../api/posts";
 
 export default function EditPostPage() {
   const { id } = useParams();
@@ -8,19 +9,24 @@ export default function EditPostPage() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    // Fetch post data by ID
     const fetchPost = async () => {
-      // const res = await api.getPostById(id);
-      const res = { id, title: "Sample Title", content: "Sample content." };
-      setPost(res);
+      try {
+        const res = await getPostById(id);
+        setPost(res.data);
+      } catch (err) {
+        console.error(err);
+      }
     };
     fetchPost();
   }, [id]);
 
   const handleUpdate = async (data) => {
-    console.log("Updating post:", data);
-    // await api.updatePost(id, data);
-    navigate("/profile");
+    try {
+      await updatePost(id, data);
+      navigate("/profile");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

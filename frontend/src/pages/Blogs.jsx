@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlogGrid from "../components/BlogGrid";
+import { getAllPosts } from "../api/posts";
 
 export default function Blogs() {
-  const allPosts = [
-    { id: 1, title: "Understanding React Hooks", excerpt: "Hooks let you use state and lifecycle..." },
-    { id: 2, title: "JWT Authentication", excerpt: "Secure your APIs with JSON Web Tokens..." },
-    { id: 3, title: "Tailwind CSS Tips", excerpt: "Build beautiful UIs quickly..." },
-    { id: 4, title: "Express + MongoDB", excerpt: "RESTful APIs step by step..." },
-    { id: 5, title: "Dark Mode in React", excerpt: "Toggle themes easily with context..." },
-    { id: 6, title: "TypeScript for Beginners", excerpt: "Static typing in JavaScript..." },
-  ];
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await getAllPosts();
+        console.log("Fetched posts:", res.data); // ✅ Expect an array here
+        setPosts(res.data);
+      } catch (err) {
+        console.error("Error fetching posts:", err); // ❌ If HTML comes, it'll show here
+      }
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
         All Blog Posts
       </h1>
-      <BlogGrid posts={allPosts} />
+      <BlogGrid posts={posts} />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function BlogCard({ post }) {
         {post.excerpt}
       </p>
       <Link
-        to={`/posts/${post.id}`}
+        to={`/posts/${post._id}`}
         className="inline-block mt-auto px-4 py-2 rounded bg-teal-500 text-white hover:bg-teal-600 transition"
       >
         Read More
