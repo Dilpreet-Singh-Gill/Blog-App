@@ -23,9 +23,9 @@ export default function PostDetail() {
   return (
     <div className="max-w-3xl mx-auto p-8">
       <h1 className="text-4xl font-bold mb-4 text-gray-900">{post.title}</h1>
-      {post.image && (
+      {post.imageUrl && (
         <img
-          src={post.image}
+          src={post.imageUrl}
           alt={post.title}
           className="w-full max-h-96 object-cover rounded mb-6"
         />

@@ -21,7 +21,7 @@ export default function CreatePostPage() {
       <h1 className="text-3xl text-center mb-6">Create New Post</h1>
       <PostForm
         initialData={{ title: "", content: "", image: "" }}
-        onSubmit={handleCreate}
+        onSuccess={handleCreate}
         buttonText="Publish"
       />
     </div>

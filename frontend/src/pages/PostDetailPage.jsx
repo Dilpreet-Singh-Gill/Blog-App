@@ -37,9 +37,9 @@ export default function PostDetailPage() {
           Published on {new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </p>
 
-        {post.image && (
+        {post.imageUrl && (
           <img
-            src={post.image}
+            src={post.imageUrl}
             alt={post.title}
             className="w-full h-auto max-h-[500px] object-cover rounded-xl mb-12 shadow-lg"
           />

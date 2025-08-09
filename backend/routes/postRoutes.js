@@ -1,3 +1,4 @@
+// backend/routes/postRoutes.js
 import express from "express";
 import {
   createPost,
@@ -7,15 +8,27 @@ import {
   updatePost,
   deletePost
 } from "../controllers/postController.js";
-import auth from "../middleware/auth.js";   // ✅ import auth
+import auth from "../middleware/auth.js";
+import upload from "../middleware/uploadMemory.js"; // Multer memory storage
 
 const router = express.Router();
 
-router.post("/", auth, createPost);         // ✅ protected
-router.get("/", getAllPosts);               // public
-router.get("/mine", auth, getMyPosts);      // ✅ protected
-router.get("/:id", getPostById);            // public
-router.put("/:id", auth, updatePost);       // ✅ protected
-router.delete("/:id", auth, deletePost);    // ✅ protected
+// Create post with image upload to Cloudinary
+router.post("/", auth, upload.single("image"), createPost);
+
+// Get all posts
+router.get("/", getAllPosts);
+
+// Get posts of logged-in user
+router.get("/mine", auth, getMyPosts);
+
+// Get single post by ID
+router.get("/:id", getPostById);
+
+// Update post (image upload optional)
+router.put("/:id", auth, upload.single("image"), updatePost);
+
+// Delete post
+router.delete("/:id", auth, deletePost);
 
 export default router;
