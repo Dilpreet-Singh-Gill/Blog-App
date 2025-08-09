@@ -121,22 +121,71 @@ Blog-App/
 ```bash
 git clone https://github.com/yourusername/blog-app.git
 cd blog-app
+2. Install backend dependencies:
+
+bash
+Copy
+Edit
 cd backend
 npm install
+3. Create a .env file in the backend folder:
+
+ini
+Copy
+Edit
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 CLOUDINARY_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+4. Start the backend server:
+
+bash
+Copy
+Edit
 npm run dev
+5. Install frontend dependencies:
+
+bash
+Copy
+Edit
 cd ../frontend
 npm install
-| Variable                | Description                        |
-| ----------------------- | ---------------------------------- |
-| PORT                    | Backend server port (default 5000) |
-| MONGO\_URI              | MongoDB connection URI             |
-| JWT\_SECRET             | Secret key for JWT authentication  |
-| CLOUDINARY\_NAME        | Cloudinary cloud name              |
-| CLOUDINARY\_API\_KEY    | Cloudinary API key                 |
-| CLOUDINARY\_API\_SECRET | Cloudinary API secret              |
+6. Start the frontend app:
+
+bash
+Copy
+Edit
+npm start
+7. Open your browser:
+Visit http://localhost:3000
+
+Environment Variables
+Variable	Description
+PORT	Backend server port (default 5000)
+MONGO_URI	MongoDB connection URI
+JWT_SECRET	Secret key for JWT authentication
+CLOUDINARY_NAME	Cloudinary cloud name
+CLOUDINARY_API_KEY	Cloudinary API key
+CLOUDINARY_API_SECRET	Cloudinary API secret
+
+Available Scripts
+Backend:
+
+bash
+Copy
+Edit
+npm run dev   # Starts server with nodemon
+npm start     # Starts server normally
+Frontend:
+
+bash
+Copy
+Edit
+npm start     # Starts the React app
+npm run build # Builds for production
+
+Contributing
+Feel free to fork the repository and submit pull requests.
+Please ensure your code follows the existing style and includes tests where applicable.
