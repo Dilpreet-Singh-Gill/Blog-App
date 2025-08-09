@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaCode, FaRocket, FaPaintBrush, FaPuzzlePiece } from "react-icons/fa";
-import Lottie from "react-lottie-player";
 
 // Reusable Feature Card Component
 const FeatureCard = ({ icon, title, desc }) => (
@@ -31,7 +30,10 @@ export default function Home() {
           <p className="text-lg text-slate-600 mt-6 max-w-2xl mx-auto">
             Your daily dose of blogs on technology, creative coding, and professional growth.
           </p>
-          <Link to="/blogs" className="inline-block mt-10 px-8 py-4 rounded-full bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition shadow-lg hover:shadow-emerald-300 transform hover:scale-105">
+          <Link
+            to="/blogs"
+            className="inline-block mt-10 px-8 py-4 rounded-full bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition shadow-lg hover:shadow-emerald-300 transform hover:scale-105"
+          >
             Browse Blogs
           </Link>
         </div>
@@ -49,31 +51,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lottie Animation Section */}
-      <section className="bg-white">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 py-20 px-4">
-          <div className="md:w-1/2">
-            <Lottie
-              loop play speed={1}
-              src="https://assets9.lottiefiles.com/packages/lf20_x17ycm0v.json" // A different, cool animation
-              style={{ width: "100%", height: "auto" }}
-            />
-          </div>
-          <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-slate-800">Animate Your Ideas</h2>
-            <p className="text-slate-600 mt-4">We believe in dynamic content. Our blog integrates beautiful animations and interactive elements to bring technical topics to life.</p>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA Section */}
-      <section className="py-24 bg-slate-800 text-white text-center">
+      <section className="py-24 bg-slate-800 text-white text-center m-0">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-4xl font-extrabold mb-4">Ready to Dive In?</h2>
           <p className="text-lg text-slate-300 mb-8">
             Your developer journey starts here. Let’s build something amazing together.
           </p>
-          <Link to="/signup" className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white font-bold transition shadow-lg hover:shadow-emerald-400/50 transform hover:scale-105">
+          <Link
+            to="/signup"
+            className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white font-bold transition shadow-lg hover:shadow-emerald-400/50 transform hover:scale-105"
+          >
             Get Started for Free
           </Link>
         </div>

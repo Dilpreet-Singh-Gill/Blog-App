@@ -8,7 +8,6 @@ export default function About() {
   return (
     <div>
       <AboutSection />
-      <TeamSection />
       <TestimonialsSection />
       <ContactCTA />
     </div>

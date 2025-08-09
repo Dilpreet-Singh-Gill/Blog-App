@@ -63,9 +63,20 @@ export default function Header() {
           {/* Theme & Auth buttons */}
           {isLoggedIn ? (
             <>
-              <Link to="/create" className="px-4 py-2 text-sm font-semibold rounded-full bg-emerald-500 text-white hover:bg-emerald-600 transition-all duration-300">
+              <Link
+                to="/create"
+                className="px-4 py-2 text-sm font-semibold rounded-full bg-emerald-500 text-white hover:bg-emerald-600 transition-all duration-300"
+              >
                 Create
               </Link>
+
+              <Link
+                to="/profile"
+                className="px-4 py-2 text-sm font-semibold rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300"
+              >
+                Profile
+              </Link>
+
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 text-sm font-semibold rounded-full bg-slate-200 text-slate-700 hover:bg-slate-300 transition-all duration-300"
@@ -75,10 +86,16 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link to="/login" className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-500 transition-colors duration-300">
+              <Link
+                to="/login"
+                className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-500 transition-colors duration-300"
+              >
                 Login
               </Link>
-              <Link to="/signup" className="px-4 py-2 text-sm font-semibold rounded-full bg-slate-800 text-white hover:bg-slate-900 transition-all duration-300">
+              <Link
+                to="/signup"
+                className="px-4 py-2 text-sm font-semibold rounded-full bg-slate-800 text-white hover:bg-slate-900 transition-all duration-300"
+              >
                 Sign Up
               </Link>
             </>
