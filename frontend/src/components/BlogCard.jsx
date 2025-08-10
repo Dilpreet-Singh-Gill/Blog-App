@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function BlogCard({ post }) {
-  // 🎨 Use a placeholder image if the post doesn't have one
-  const imageUrl = post.image || "https://source.unsplash.com/random/400x250/?technology,code";
+  // ✅ Use imageUrl from backend, fallback to placeholder if missing
+  const imageUrl =
+    post.imageUrl?.trim() ||
+    "https://t3.ftcdn.net/jpg/01/34/31/72/360_F_134317274_PTXPn7EjliaYrJrZmfs0x5jFv8dmXsYn.jpg";
 
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl group">
@@ -13,6 +15,10 @@ export default function BlogCard({ post }) {
             src={imageUrl}
             alt={post.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              e.target.src =
+                "https://t3.ftcdn.net/jpg/01/34/31/72/360_F_134317274_PTXPn7EjliaYrJrZmfs0x5jFv8dmXsYn.jpg";
+            }}
           />
         </div>
         <div className="p-6">
